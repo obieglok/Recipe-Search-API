@@ -1,0 +1,8 @@
+import requests
+app_key = '2d18de37fa056f6c5a6e311033d2aacc'
+app_id = '058ce9ff'
+ingredient = input('Please enter an ingredient: ')
+result = requests.get('https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id, app_key))
+
+data = result.json()
+print(data)
