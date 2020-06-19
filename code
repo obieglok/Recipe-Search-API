@@ -1,8 +1,16 @@
 import requests
-app_key = '2d18de37fa056f6c5a6e311033d2aacc'
-app_id = '058ce9ff'
-ingredient = input('Please enter an ingredient: ')
-result = requests.get('https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id, app_key))
 
-data = result.json()
-print(data)
+def searc(ingredient):
+    app_key = '2d18de37fa056f6c5a6e311033d2aacc'
+    app_id = '058ce9ff'
+    ingredient
+    result = requests.get('https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id, app_key))
+    data = result.json()
+    return data['hits']
+ingredient = input('Please enter an ingredient: ')
+res = searc(ingredient)
+
+for result in res:
+    recipe = result['recipe']
+print(recipe['label'])
+print(recipe['uri'])
